@@ -57,45 +57,14 @@
       </form>
 
       <script type="text/javascript">
-         function ShowPassword(chkShowPassword){
-             //Reference the TextBox.
-             var txtPassword = document.getElementById("txtPassword");
-             var txtTemp;
-
-        //If passowrd needs to be shown
-        if(chkShowPassword.checked){
-            //Remove if any Textbox present next to Password Textbox
-            if(txtPassword.nextSibling != null){
-                txtPassword.parentNode.removeChild(txtPassword.nextSibling);
+        function myFunction() {
+            var x = document.getElementById("txtPassword");
+            if(x.type === "password"){
+                x.type = "text";
+            }else {
+                x.type = "password";
             }
-            //CReate a Textbox element and set the value of Password Textbox to it
-            txtTemp = document.createElement('input');
-            txtTemp.setAttribute('type', 'text');
-            txtTemp.setAttribute('value', txtPassword.value);
-            
-            //Set the value of textbox back to Password TextBox on OnChange event
-            txtTemp.onchange = function(){
-                txtPassword.value = this.value;
-            };
-
-            //Insert the TextBox next to The Password TextBox.
-            txtPassword.parentNode.insertBefore(txtTemp, txtPassword.nextSibling);
-
-            //HIde the Password TextBox
-            txtPassword.style.display = "none";
-        } else{
-            txtTemp = txtPassword.nextSibling;
-
-            //SEt the value of the TextBox to the Password TextBox 
-            txtPassword.value = txtTemp.value;
-
-            //Remove the TextBox
-            txtTemp.parentNode.removeChild(txtTemp);
-
-            //Show the Password TextBox
-            txtPassword.style.display = "block;"
         }
-         };
       </script>
 </body>
 </html>
